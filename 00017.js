@@ -6,6 +6,28 @@
 
 function targetTerdekat(arr) {
   // you can only write your code here!
+
+  let indexDari_O = -1; //jika tidak ada, maka akan dikasih min 1
+  let indexDari_X = -1;
+  let jarak = 0;
+
+  //menelusuri arr satu per satu
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "o") {
+      //mencari posisi O
+      indexDari_O = i;
+    } else if (arr[i] === "x") {
+      indexDari_X = i;
+      break; //mengunci posisi X terdekat setelah O, jika tidak dibreak, dia akan menyimpan posisi x yang selanjutnya
+    }
+  }
+
+  if (indexDari_X === -1) {
+    return jarak;
+  } else {
+    jarak = Math.abs(indexDari_X - indexDari_O);
+    return jarak;
+  }
 }
 
 // TEST CASES
